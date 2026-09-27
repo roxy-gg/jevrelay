@@ -1,0 +1,71 @@
+{
+  "name": "@jevrelay/mcp",
+  "version": "0.1.0",
+  "description": "Open-source local MCP runtime for fast, provider-neutral browser automation.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roxy-gg/jevrelay.git"
+  },
+  "homepage": "https://github.com/roxy-gg/jevrelay#readme",
+  "bugs": {
+    "url": "https://github.com/roxy-gg/jevrelay/issues"
+  },
+  "keywords": [
+    "mcp",
+    "playwright",
+    "automation",
+    "jev",
+    "browser"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "jevrelay-mcp": "dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "schema",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "npm run format:check && npm run typecheck && npm test && npm run build && npm run smoke:mcp",
+    "dev": "tsx src/cli.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepublishOnly": "npm run check",
+    "smoke:browser": "node scripts/smoke-browser.mjs",
+    "smoke:mcp": "node scripts/smoke-mcp.mjs",
+    "smoke:mcp-browser": "node scripts/smoke-mcp-browser.mjs",
+    "smoke:origin": "node scripts/smoke-origin.mjs",
+    "start": "node dist/cli.js",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.1",
+    "ajv": "^8.20.0",
+    "playwright": "^1.63.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "name": "local-page",
+  "permissions": {
+    "origins": ["https://example.com"]
+  },
+  "steps": [
+    {
+      "action": "browser.goto",
+      "url": "https://example.com"
+    },
+    {
+      "action": "browser.assert",
+      "target": { "role": "heading", "name": "Example Domain" },
+      "state": "visible"
+    },
+    {
+      "action": "browser.extract",
+      "target": { "role": "heading", "name": "Example Domain" },
+      "fields": ["text"],
+      "saveAs": "heading"
+    }
+  ]
+}
