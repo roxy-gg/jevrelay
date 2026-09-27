@@ -37,7 +37,14 @@ jevrelay-mcp install-browser
 jevrelay-mcp doctor
 ```
 
-Until the package is published, clone this repository and use:
+Until the package is published, install and run it directly from GitHub:
+
+```sh
+npx github:roxy-gg/jevrelay install-browser
+npx github:roxy-gg/jevrelay doctor
+```
+
+Or clone the repository:
 
 ```sh
 npm install
@@ -63,16 +70,20 @@ node dist/cli.js doctor
 
 ### Roxy
 
+Before npm publication, use the public GitHub repository:
+
 ```json
 {
   "mcpServers": {
     "jevrelay": {
       "command": "npx",
-      "args": ["-y", "@jevrelay/mcp"]
+      "args": ["-y", "github:roxy-gg/jevrelay"]
     }
   }
 }
 ```
+
+After npm publication, replace the final argument with `@jevrelay/mcp`.
 
 Scripts without `decide` steps need no provider or API key.
 

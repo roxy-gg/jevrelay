@@ -46,6 +46,7 @@
     "dev": "tsx src/cli.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run check",
     "smoke:browser": "node scripts/smoke-browser.mjs",
     "smoke:mcp": "node scripts/smoke-mcp.mjs",
